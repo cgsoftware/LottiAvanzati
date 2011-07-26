@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view" id="view_order_form_lotti">
+            <field name="name">view.order.form.lotti</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">	
+                <field name="product_id" position="after">
+                    <field name='lotto_id' on_change="lotto_id_change(lotto_id, product_id, parent.pricelist_id,parent.partner_id)" ></field>
+                </field>
+            </field>
+        </record>        
+    </data>
+</openerp>            

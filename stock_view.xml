@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="stock_production_lot_listini">
+            <field name="name">stock.production.lot.listini</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="after">
+                    <field name="ucaprod"/>		      
+                </field>
+                <notebook position="inside">        
+                    <page string=" Listini Particolari Lotti ">
+                        <separator string="Listini Lotti " />				  
+                        <field name="listini_ids" select='2' colspan="4" nolabel="1" string="Listini Articoli">
+                            <tree editable="top">
+                                <field name="listino_id" size='5' on_change="on_change_listino(listino_id)" />
+                                <field name="default_price" />
+                                <field name="prezzo" size='10' on_change="on_change_prezzo(discount_riga,prezzo)" />
+                                <field name="sconti" on_change="on_change_sconti(sconti,prezzo)" />	    
+                                <field name="discount_riga" />	   
+                                <field name="prezzo_netto" />	
+                                
+                            </tree>				  		
+                        </field>
+                        
+                    </page>
+                </notebook>
+                
+            </field>
+            
+       
+       </record>
+       
+       
+                <record id="view_production_lot_tree2" model="ir.ui.view">
+                    <field name="name">stock.production.lot.tree2</field>
+                    <field name="model">stock.production.lot</field>
+                    <field name="type">tree</field>
+                    <field name="arch" type="xml">
+                        <tree string="Production Lot">
+                            <field name="name"/>
+                            <field name="ref"/>
+                            <field name="stock_available"/>
+                            <field name="price_default"/>
+                            <field name="product_id"/>                            
+                        </tree>
+                    </field>
+                </record>
+        
+        <record model="ir.ui.view" id="product_lotti_form">
+            <field name="name">product.lotti.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">        
+                    <page string="Lotti">
+                        <separator string="Elenco Lotti" />				  
+                        <field name="elenco_lotti" select='2' colspan="4" nolabel="1" string="Lotti" readonly="True" >
+                            <tree string="Production Lot">
+                                <field name="name"/>
+                                <field name="ref"/>
+                                <field name="stock_available"/>
+                                <field name="price_default"/>
+                                <field name="product_id"/>                            
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                
+            </field>
+        </record>        
+                
+    </data>
+</openerp>        
