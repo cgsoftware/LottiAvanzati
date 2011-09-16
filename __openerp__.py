@@ -28,7 +28,8 @@
     'author': 'C & G Software sas',
     'website': 'http://www.cgsoftware.it',
     "depends" : ['product', 'stock', 'ListiniAdHoc'],
-    "update_xml" : ['stock_view.xml', 'security/ir.model.access.csv', 'sale_order_lotti_view.xml'],
+    "update_xml" : ['stock_view.xml', 'security/ir.model.access.csv', 'sale_order_lotti_view.xml',
+                    'FiscalDoc_lotti_view.xml'],
     "active": False,
     "installable": True
 }

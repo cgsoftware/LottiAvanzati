@@ -18,7 +18,6 @@ class sale_order_line(osv.osv):
 
     _columns = {
                 'lotto_id': fields.many2one('stock.production.lot', 'Lotto di Produzione', required=False, ondelete='cascade', select=True),
-                
                 }
     
     def lotto_id_change(self, cr, uid, ids, lotto_id, product_id, pricelist, partner_id):
@@ -35,9 +34,9 @@ class sale_order_line(osv.osv):
               result.update({'discount':riga_listino['discount_riga']})
               result.update({'prezzo_netto':riga_listino['prezzo_netto']})          
          else:
-             import pdb;pdb.set_trace()
+             #import pdb;pdb.set_trace()
              if product_id:
-                 import pdb;pdb.set_trace()
+                 #import pdb;pdb.set_trace()
                  qty = 1
                  riga_listino = self.pool.get('product.pricelist').price_get_adhoc(cr, uid, [pricelist], product_id, qty, partner_id, context=False)
                  if riga_listino:

@@ -22,5 +22,6 @@
 
 import stock
 import sale_order_lotti
+import FiscalDocument
 
 
